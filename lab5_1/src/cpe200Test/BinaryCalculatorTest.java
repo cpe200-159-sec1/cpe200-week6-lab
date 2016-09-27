@@ -1,11 +1,15 @@
 package cpe200Test;
-
-import cpe200.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+
+import cpe200.IOperand;
+import cpe200.StringOperand;
+import cpe200.IntegerOperand;
+import cpe200.DoubleOperand;
+import cpe200.BinaryCalculator;
 
 import static org.junit.Assert.*;
 
