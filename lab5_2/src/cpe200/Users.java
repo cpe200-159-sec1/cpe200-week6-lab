@@ -1,6 +1,5 @@
 package cpe200;
 
-
 import java.util.ArrayList;
 
 /**
@@ -9,42 +8,52 @@ import java.util.ArrayList;
 public class Users {
     public ArrayList<IUser> userList;
 
-    public void addUser(IUser user)
-    {
+    public Users() {
+        userList = new ArrayList<>();
     }
 
-    public void addUser(String userName, String password)
-    {
+    public void addUser(IUser user) {
+        userList.add(user);
     }
 
-    public void deleteUser(IUser user)
-    {
-
+    public void addUser(String userName, String password) {
+        User user = new User();
+        user.setUserName(userName);
+        user.setPassword(password);
+        userList.add(user);
     }
 
-    public boolean exists(IUser user)
-    {
-        return false;
+    public void deleteUser(IUser user) {
+        if (!userList.remove(user))
+            throw new RuntimeException("User not found");
     }
 
-    public boolean usernameExists(String username)
-    {
+    public boolean exists(IUser user) {
+        return userList.contains(user);
+    }
+
+    public boolean usernameExists(String username) {
+        for (IUser user : userList) {
+            if (user.getUserName().equals(username))
+                return true;
+        }
         return false;
     }
 
     /* This method should return null when the user with username is not in the list */
-    public IUser getUserByUsername(String userName)
-    {
+    public IUser getUserByUsername(String userName) {
+        for (IUser user : userList) {
+            if (user.getUserName().equals(userName))
+                return user;
+        }
         return null;
     }
 
-    public int count()
-    {
-        return 0;
+    public int count() {
+        return userList.size();
     }
 
-    public IUser[] getUserArray()
-    {
-        return null;
+    public IUser[] getUserArray() {
+        return userList.toArray(new IUser[1]);
     }
 }
