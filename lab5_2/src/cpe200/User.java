@@ -17,15 +17,17 @@ public class User implements IUser {
     }
 
     public String setUserName(String name) {
-        if((name.length()>=8)&& (name.matches("^([A-Za-z])([A-Za-z0-9]+)$"))){
-            String temp = userName;
-            userName=name;
+        if (name != null) {
+            if ((name.length() >= 8) && (name.matches("^([A-Za-z])([A-Za-z0-9]+)$"))) {
+                String temp = userName;
+                userName = name;
 
-            return temp;
+                return temp;
 
-        }else
-            throw new RuntimeException();
+            } else
+                throw new RuntimeException();
 
+        }return null;
     }
 
     public int setPassword(String name) {

@@ -8,7 +8,6 @@ public class BinaryCalculator {
     private IOperand secondOperand;
 
     public BinaryCalculator() {
-
     }
 
     public void setFirstOperand(IOperand operand) {

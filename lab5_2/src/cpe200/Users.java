@@ -17,7 +17,7 @@ public class Users {
     }
 
     public void addUser(String userName, String password) {
-        User temp = new User(userName,password);
+        IUser temp = new User(userName,password);
         userList.add(temp);
 
     }
@@ -29,7 +29,7 @@ public class Users {
 
     public boolean exists(IUser user){
 
-        return false;
+        return userList.contains(user);
     }
 
     public boolean usernameExists(String username){
@@ -39,17 +39,24 @@ public class Users {
 
     /* This method should return null when the user with username is not in the list */
     public IUser getUserByUsername(String userName){
-
-        return null;
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).equals(userName)) {
+            }
+            return userList.get(i);
+        }
+        return new User();
     }
 
     public int count(){
 
-        return 0;
+        return userList.size();
     }
 
     public IUser[] getUserArray(){
-
-        return null;
+        IUser[] userArray = new User[userList.size()];
+        for (int i = 0; i < userList.size(); i++) {
+            userArray[i] = userList.get(i);
+        }
+        return userArray;
     }
 }
