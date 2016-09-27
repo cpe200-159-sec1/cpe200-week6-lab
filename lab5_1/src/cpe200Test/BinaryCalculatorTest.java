@@ -580,7 +580,7 @@ public class BinaryCalculatorTest {
 
     @Test
     public void operandDirectAccess() throws Exception {
-        Field field = DoubleOperand.class.getDeclaredField("operand");
+        Field field = DoubleOperand.class.getDeclaredField("Operand");
        assertFalse(Modifier.isPublic(field.getModifiers()));
 
         field = BinaryCalculator.class.getDeclaredField("firstOperand");
