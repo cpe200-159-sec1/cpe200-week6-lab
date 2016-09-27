@@ -5,12 +5,14 @@ package cpe200;
  */
 public class IntegerOperand implements IOperand {
 
-    public IntegerOperand(int i) {
+    private String operand;                             //check
 
+    public IntegerOperand (Integer d) {
+        operand = Integer.toString(d);
     }
 
     @Override
     public String getOperand() {
-        return null;
+        return operand;
     }
 }
