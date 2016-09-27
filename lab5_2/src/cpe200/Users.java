@@ -24,7 +24,8 @@ public class Users {
 
     public void deleteUser(IUser user)
     {
-        userList.remove(user);
+        if (!userList.remove(user))
+            throw new RuntimeException("ERROR");
     }
 
     public boolean exists(IUser user)
@@ -34,7 +35,7 @@ public class Users {
 
     public boolean usernameExists(String username)
     {
-        for (IUser i; userList)
+        for (IUser i : userList)
             if (i.getUserName().equals(username))
                 return true;
         return false;
@@ -43,7 +44,7 @@ public class Users {
     /* This method should return null when the user with username is not in the list */
     public IUser getUserByUsername(String userName)
     {
-        for (IUser i; userList)
+        for (IUser i : userList)
             if (i.getUserName().equals(userName))
                 return i;
         return null;
