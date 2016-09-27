@@ -8,7 +8,8 @@ public class User implements IUser {
     public String password;
 
     public User(){
-
+        userName = null;
+        password = null;
     }
     public User(String user ,String pass) {
         setUserName(user);

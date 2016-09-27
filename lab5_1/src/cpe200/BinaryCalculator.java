@@ -9,7 +9,8 @@ public class BinaryCalculator {
     private IOperand secondOperand;
 
     public BinaryCalculator() {
-
+        firstOperand = null;
+        secondOperand = null;
     }
 
     public void setFirstOperand(IOperand operand) {
