@@ -1,6 +1,8 @@
 package cpe200;
 
 
+import com.sun.istack.internal.NotNull;
+
 /**
  * Created by pruet on 6/9/2559.
  */
@@ -13,6 +15,8 @@ public class User implements IUser {
     }
 
     public String setUserName(String name) {
+        if (name == null)
+            return null;
         String regex = "[A-Za-z][A-Za-z0-9]{7,}";
         if (name != null && name.matches(regex)) {
             String ret = userName;
@@ -23,6 +27,8 @@ public class User implements IUser {
     }
 
     public int setPassword(String name) {
+        if (name == null)
+            return 0;
         String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]{12,})$";
         if (name != null && name.matches(regex)) {
             int ret = name.length();

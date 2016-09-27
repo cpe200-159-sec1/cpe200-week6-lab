@@ -15,7 +15,7 @@ public class UserTest {
     @Before
     public void setUp() throws Exception {
         user = new User();
-//        user.setUserName(null
+        user.setUserName(null);
     }
 
     @Test
