@@ -1,38 +1,56 @@
 package cpe200;
 
 
+import java.math.BigDecimal;
+
 public class BinaryCalculator {
-    public IOperand firstOperand;
-    public IOperand secondOperand;
+    private IOperand firstOperand;
+    private IOperand secondOperand;
+    private BigDecimal first;
+    private BigDecimal second;
+
 
     public BinaryCalculator() {
     }
 
     public void setFirstOperand(IOperand operand) {
+        this.firstOperand = operand;
+        first = new BigDecimal(firstOperand.getOperand());
     }
 
     public void setSecondOperand(IOperand operand) {
+        this.secondOperand = operand;
+        second = new BigDecimal(secondOperand.getOperand());
     }
-
+    public void checkRuntimeException() {
+        if (first.intValue() < 0 || second.intValue() < 0) {
+            throw new RuntimeException("Operand is negative");
+        }
+    }
     public String add() throws RuntimeException {
-        return null;
+        checkRuntimeException();
+        return first.add(second).stripTrailingZeros().toString();
     }
 
     public String subtract() throws RuntimeException {
-        return null;
+        checkRuntimeException();
+        return first.subtract(second).stripTrailingZeros().toString();
     }
 
     public String multiply() throws RuntimeException {
-        return null;
+        checkRuntimeException();
+        return first.multiply(second).stripTrailingZeros().toString();
     }
 
     /* This method should throw an exception when divide by zero */
     public String division() throws RuntimeException {
-        return null;
+        checkRuntimeException();
+        return first.divide(second, 5, BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toString();
     }
 
     public String power() throws RuntimeException {
-        return null;
-    }
+        checkRuntimeException();
+        return first.pow(second.intValue()).stripTrailingZeros().toString();
 
+    }
 }
