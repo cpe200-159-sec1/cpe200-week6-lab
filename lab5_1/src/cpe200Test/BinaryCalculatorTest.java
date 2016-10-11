@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static org.junit.Assert.*;
 
 
@@ -580,7 +581,7 @@ public class BinaryCalculatorTest {
 
     @Test
     public void operandDirectAccess() throws Exception {
-        Field field = Double.class.getDeclaredField("operand");
+        Field field = DoubleOperand.class.getDeclaredField("operand");
        assertFalse(Modifier.isPublic(field.getModifiers()));
 
         field = BinaryCalculator.class.getDeclaredField("firstOperand");
