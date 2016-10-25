@@ -13,4 +13,6 @@ public class IntegerOperand implements IOperand {
     public String getOperand() {
         return operand;
     }
+
+    int[][] s = new int[20][20];
 }
